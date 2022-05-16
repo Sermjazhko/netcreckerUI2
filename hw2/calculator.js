@@ -8,7 +8,13 @@ function changeTable() {
     document.getElementById("error").innerText = "";
 
     if (!(isNumeric(a) && isNumeric(b) && isNumeric(c))) {
-        document.getElementById("error").innerText = "Данные некорректны!";
+        if (!isNumeric(a)) {
+            document.getElementById("error").innerText = "Данные некорректны! Поле А не заполнено либо введено не числовое значение.";
+        } else if (!isNumeric(b)) {
+            document.getElementById("error").innerText = "Данные некорректны! Поле B не заполнено либо введено не числовое значение.";
+        } else {
+            document.getElementById("error").innerText = "Данные некорректны! Поле C не заполнено либо введено не числовое значение.";
+        }
     } else if (parseFloat(a) == 0) {
         document.getElementById("error").innerText = "A=0, не квадратное уравнение!";
     } else {
@@ -68,7 +74,7 @@ function equationRoots(result) {
 
 function equationSolution(a, b, c) {
     var discriminant;
-    var xR, x1I,  x2I;
+    var xR, x1I, x2I;
     var complex = false;
     discriminant = b * b - 4 * a * c;
     if (discriminant < 0) {
@@ -89,19 +95,19 @@ function sign(num) {
     return (num < 0) ? "" + num : "+" + num;
 }
 
-function signFirst(a){
+function signFirst(a) {
     if (coeffOne(a))
         return (a < 0) ? "-" : "";
     return a;
 }
 
-function coeffOne(num){
+function coeffOne(num) {
     return Math.abs(num) == 1;
 }
 
 function equation(a, b, c) {
     var result = "0";
-    if (isNumeric(a) && a != 0) result = signFirst(a)  + "x^2";
+    if (isNumeric(a) && a != 0) result = signFirst(a) + "x^2";
     if (isNumeric(b) && b != 0) result += sign(b) + "x";
     if (isNumeric(c) && c != 0) result += sign(c) + (coeffOne(c) ? Math.abs(c) : "");
     return result;
