@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Подсчет корней квадратного уравнения</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script type="text/javascript" src="calculator.js"></script>
+</head>
+<body>
+<h1>Подсчет корней квадратного уравнения</h1>
+<div>
+    <h2>Введите коэффициенты квадратного уравнения вида: Ax^2+Bx+C=0</h2>
+    <p>
+        <label for="text1">A:</label>
+        <input type="text" id="text1" value="0" size="10" onmouseout="showEquation()">
+        <label for="text2">B:</label>
+        <input type="text" id="text2" value="0" size="10" onmouseout="showEquation()">
+        <label for="text3">C:</label>
+        <input type="text" id="text3" value="0" size="10" onmouseout="showEquation()">
+        <div id = "error" class="showError"></div>
+    </p>
+    <p>
+    <h2>Уравнение:</h2>
+    <div id = "array"></div>
+    </p>
+    <button onclick="changeTable()">Посчитать</button>
+</div>
+<h2>Таблица результатов</h2>
+<table>
+    <tr id="table"><td><p>№</p></td><td><p>Уравнение</p></td><td><p>Решение</p></td></tr>
+</table>
+</body>
+</html>
